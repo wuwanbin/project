@@ -183,24 +183,10 @@
                     <ul class="list">
                         <li class="active"><a href="http://zhishiku.little-star.me/?/explore/">全部</a></li>
 
-                        <li>
-                            <a href="http://zhishiku.little-star.me/?/explore/category-3">营销技巧</a>
+                        <li th:each="c:${classifies}">
+                            <a href="http://zhishiku.little-star.me/?/explore/category-3" th:text="${c.cname}"></a>
                         </li>
-                        <li>
-                            <a href="http://zhishiku.little-star.me/?/explore/category-5">营销心理学</a>
-                        </li>
-                        <li>
-                            <a href="http://zhishiku.little-star.me/?/explore/category-7">讲师风采</a>
-                        </li>
-                        <li>
-                            <a href="http://zhishiku.little-star.me/?/explore/category-6">学员风采</a>
-                        </li>
-                        <li>
-                            <a href="http://zhishiku.little-star.me/?/explore/category-2">行政活动</a>
-                        </li>
-                        <li>
-                            <a href="http://zhishiku.little-star.me/?/explore/category-4">面试技巧</a>
-                        </li>
+
                     </ul>
                 </div>
             </div>

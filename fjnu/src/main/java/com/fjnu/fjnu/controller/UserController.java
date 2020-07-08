@@ -1,6 +1,10 @@
 package com.fjnu.fjnu.controller;
 
+import com.fjnu.fjnu.bean.Article;
+import com.fjnu.fjnu.bean.Classify;
 import com.fjnu.fjnu.bean.User;
+import com.fjnu.fjnu.service.IArticleService;
+import com.fjnu.fjnu.service.IClassifyService;
 import com.fjnu.fjnu.service.IUserService;
 import com.fjnu.fjnu.utils.Result;
 import com.fjnu.fjnu.utils.ResultEnum;
@@ -168,5 +172,7 @@ public class UserController {
 
         return result;
     }
+
+
 
 }
