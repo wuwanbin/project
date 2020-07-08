@@ -10,12 +10,12 @@ spring:
     suffix: .html  #后缀名
   datasource:
     name: test
-    url: jdbc:mysql://127.0.0.1:3306/edusys?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/dfrz?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC
     username: root
-    password: 123456
+    password: root0048
     # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     filters: stat
     maxActive: 20
     initialSize: 1

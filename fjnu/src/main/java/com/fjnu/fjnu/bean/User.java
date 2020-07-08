@@ -5,13 +5,13 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 /*用户类*/
-@TableName("user")
+@TableName("t_user")
 public class User<to> {
     //主键
     @TableId(value = "ID",type = IdType.AUTO)
     private Integer ID;
     private String uname;
-    private String upass;
+    private String upassword;
     //头像
     private String headpic;
 
@@ -21,7 +21,7 @@ public class User<to> {
     public User(Integer ID, String uname, String upassword) {
         this.ID = ID;
         this.uname = uname;
-        this.upass = upassword;
+        this.upassword = upassword;
     }
 
     public Integer getID() {
@@ -41,11 +41,11 @@ public class User<to> {
     }
 
     public String getUpassword() {
-        return upass;
+        return upassword;
     }
 
     public void setUpassword(String upassword) {
-        this.upass = upassword;
+        this.upassword = upassword;
     }
 
     public void setHeadpic(String headpic){
@@ -59,7 +59,7 @@ public class User<to> {
         return "User{" +
                 "ID=" + ID +
                 ", uname='" + uname + '\'' +
-                ", upassword='" + upass + '\'' +
+                ", upassword='" + upassword + '\'' +
                 '}';
     }
 

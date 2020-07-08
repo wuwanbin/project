@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
-@TableName("article")
+@TableName("t_article")
 public class Article {
     //主键
     @TableId(value = "id",type = IdType.AUTO)

@@ -1,6 +1,7 @@
 package com.fjnu.fjnu.service;
 
 import com.fjnu.fjnu.bean.User;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -11,4 +12,5 @@ public interface IUserService {
     public  User getUserById(Integer id);
     public  int update(User user);
     public int delete(Integer id);
+    public String readExcelFile(MultipartFile file);
 }

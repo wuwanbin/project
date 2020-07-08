@@ -3,8 +3,10 @@ package com.fjnu.fjnu.service;
 import com.fjnu.fjnu.bean.User;
 import com.fjnu.fjnu.dao.IUserDao;
 import com.fjnu.fjnu.mapper.UserMapper;
+import com.fjnu.fjnu.utils.ExcelUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +56,23 @@ public class UserServiceImpl implements IUserService{
     @Override
     public int delete(Integer id) {
         return userMapper.deleteById(id);
+    }
+
+    @Override
+    public String readExcelFile(MultipartFile file) {
+        String result = "";
+        ExcelUtil excel = new ExcelUtil();
+        List<User> userlist = excel.getExcelInfo(file);
+        if (userlist != null && !userlist.isEmpty()) {
+            //不为空的话添加到数据库
+            for (User user : userlist) {
+                userMapper.insert(user);
+            }
+            result = "success";
+        } else {
+            result = "error";
+        }
+        return result;
     }
 
 

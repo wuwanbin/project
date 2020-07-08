@@ -2,18 +2,14 @@ package com.fjnu.fjnu.controller;
 
 import com.fjnu.fjnu.bean.Article;
 import com.fjnu.fjnu.bean.Classify;
-import com.fjnu.fjnu.bean.User;
-import com.fjnu.fjnu.service.ClassifyServiceImpl;
 import com.fjnu.fjnu.service.IArticleService;
 import com.fjnu.fjnu.service.IClassifyService;
 import com.fjnu.fjnu.utils.Result;
 import com.fjnu.fjnu.utils.ResultUtils;
-import jdk.nashorn.internal.objects.NativeJSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController

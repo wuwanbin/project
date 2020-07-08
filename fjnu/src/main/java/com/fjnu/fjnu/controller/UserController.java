@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -173,6 +175,21 @@ public class UserController {
         return result;
     }
 
+    @RequestMapping(value="/uploadUsers" )
+    public Result uploadExcel(@RequestParam(value="file")MultipartFile file, HttpServletRequest request, HttpServletResponse response){
+        Result result=null;
+        String res = userService.readExcelFile(file);
+        if (res!="success"){
+            result=ResultUtils.error(-1,"上传失败");
+        }
+        else {
+            result=ResultUtils.success();
+            result.setCode(0);
+            result.setMsg("上传成功");
+        }
+
+        return result;
+    }
 
 
 }
