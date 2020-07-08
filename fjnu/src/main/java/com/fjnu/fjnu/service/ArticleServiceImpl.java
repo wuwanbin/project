@@ -1,9 +1,8 @@
 package com.fjnu.fjnu.service;
 
 import com.fjnu.fjnu.bean.Article;
-import com.fjnu.fjnu.bean.User;
 import com.fjnu.fjnu.mapper.ArticleMapper;
-import com.fjnu.fjnu.mapper.UserMapper;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,11 +14,36 @@ public class ArticleServiceImpl implements IArticleService{
     /*@Autowired
     IUserDao userDao;*/
     @Autowired
-
     ArticleMapper articleMapper;
 
     @Override
-    public List<Article> getArticles() {
-        return articleMapper.selectList(null);
+    public void addArticle(Article article) {
+        articleMapper.insert(article);
     }
+
+
+
+    @Override
+    public List<Article> getArticles() {
+        List<Article> list=articleMapper.selectList(null);
+        return list;
+    }
+
+    @Override
+    public Article getArticleById(Integer id) {
+        Article article= articleMapper.selectById(id);
+        return article;
+    }
+
+    @Override
+    public int update(Article article) {
+        int result=articleMapper.updateById(article);
+        return result;
+    }
+
+    @Override
+    public int delete(Integer id) {
+        return articleMapper.deleteById(id);
+    }
+
 }
