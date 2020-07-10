@@ -26,7 +26,7 @@ public class UserServiceImpl implements IUserService{
 
     @Override
     public User login(User user) {
-        if (user.getUname().equals("zhangsan") && user.getUpassword().equals("123")) {
+        if (user.getUname().equals("zhangsan") && user.getUpassword().equals("333333")) {
             return user;
         }
         else{

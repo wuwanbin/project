@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user")
+
 public class PortalController<JsonResult> {
     @Autowired
     IArticleService articleService;
@@ -22,7 +22,7 @@ public class PortalController<JsonResult> {
 
 
 
-    @RequestMapping("/portal_index")
+    @RequestMapping("/user/portal_index")
     public ModelAndView toIndex(){
         ModelAndView mv =new ModelAndView();
         mv.setViewName("portal_index");
@@ -37,14 +37,14 @@ public class PortalController<JsonResult> {
 
     }
     //点击分类管理
-    @RequestMapping("/classify_manager")
+    @RequestMapping("/user/classify_manager")
     public ModelAndView toManager(){
         System.out.println("进入分类管理......");
         ModelAndView mv = new ModelAndView();
         mv.setViewName("classify_manager");
         return mv;
     }
-    @RequestMapping("/getClassifies")
+    @RequestMapping("/user/getClassifies")
     public Result getClassifies(){
         Result result=null;
         List<Classify> list=classifyService.getClassifies();
@@ -54,14 +54,14 @@ public class PortalController<JsonResult> {
         return result;
     }
 
-    @RequestMapping("/to_classify_add")
+    @RequestMapping("/user/to_classify_add")
     public ModelAndView toAdd(){
         System.out.println("添加用户......");
         ModelAndView mv = new ModelAndView();
         mv.setViewName("classify_add");
         return mv;
     }
-    @RequestMapping("/classify_add")
+    @RequestMapping("/user/classify_add")
     public Result add(Classify classify){
         System.out.println("添加分类【"+classify+"】");
         //用户数据入库
@@ -72,7 +72,7 @@ public class PortalController<JsonResult> {
         result.setMsg("添加成功");
         return result;
     }
-    @RequestMapping("/classify_delete/{id}")
+    @RequestMapping("/user/classify_delete/{id}")
     public Result delete(@PathVariable Integer id){
         Result result = null;
         int data = classifyService.delete(id);
@@ -88,7 +88,7 @@ public class PortalController<JsonResult> {
 
     }
 
-    @RequestMapping("/to_classify_edit/{id}")
+    @RequestMapping("/user/to_classify_edit/{id}")
     public ModelAndView to_Classify_edit(@PathVariable Integer id){
         System.out.println("编辑分类......");
         ModelAndView mv = new ModelAndView();
@@ -100,7 +100,7 @@ public class PortalController<JsonResult> {
         return mv;
     }
 
-    @RequestMapping("/classify_edit")
+    @RequestMapping("/user/classify_edit")
     public Result classify_edit(Classify classify){
         Result result =null;
         //先获取原来对象的值
@@ -118,7 +118,15 @@ public class PortalController<JsonResult> {
         }
         return result;
     }
+    @RequestMapping("/portal/article/{id}")
+    public ModelAndView toIndex(@PathVariable Integer id){
+        ModelAndView mv =new ModelAndView();
+        mv.setViewName("portal_article");
+        Article article=articleService.getArticleById(id);
+        mv.addObject("article",article);
+        return  mv;
 
+    }
 
 
 

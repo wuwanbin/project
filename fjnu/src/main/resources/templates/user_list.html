@@ -43,7 +43,7 @@
     </div>
     <xblock>
         <button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon"></i>批量删除</button>
-        <button class="layui-btn" onclick="x_admin_show('添加用户','/user/toAdd',600,400)"><i class="layui-icon"></i>分类编辑</button>
+        <button class="layui-btn" onclick="x_admin_show('添加用户','/user/toAdd',600,400)"><i class="layui-icon"></i>增加用户</button>
         <button type="button" class="layui-btn" id="addusers"><i class="layui-icon">&#xe67c;</i>批量添加</button>
         <span class="x-right" style="line-height:40px">共有数据：88 条</span>
     </xblock>
@@ -197,9 +197,9 @@
     }
 </script>
 <script type="text/html" id="barDemo">
-    <a class="layui-btn layui-btn-xs" lay-event="edit"><i class="layui-icon-edit"></i>编辑</a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"><i class="layui-icon-delete"></i>删除</a>
-    <a class="layui-btn layui-btn-xs" lay-event="detail"><i class="layui-icon-slider"></i>移动排序</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    <a class="layui-btn layui-btn-xs" lay-event="detail">移动排序</a>
 </script>
 <script>
     layui.use('table', function(){
@@ -214,14 +214,14 @@
 
             ,cols: [
                 [ //表头
-                {field: 'id', title: 'ID', width:80, sort: true, fixed: 'left'}
-                ,{field: 'uname', title: '用户名', width:80}
-                ,{field: 'upassword', title: '密码', width:80, sort: true}
+                {field: 'id', title: 'ID', width:80, sort: true}
+                ,{field: 'uname', title: '用户名', width:120}
+                ,{field: 'upassword', title: '密码', width:120, sort: true}
                 ,{title: '状态', width: 100,templet:function(d){
                         return  "<button type=\"button\" class=\"layui-btn layui-btn-sm layui-btn-danger\">启用</button>";
                 }
                 }
-                ,{fixed: 'right', width:150, align:'center', toolbar: '#barDemo'}
+                ,{fixed: 'right', width:250, align:'center', toolbar: '#barDemo'}
 
             ]
             ]
